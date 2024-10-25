@@ -1,0 +1,258 @@
+﻿# ===========================================================================
+# Drako Tickets Language Configuration
+# If you find any issues, need support, or have a suggestion for the bot, please join our support server and create a ticket, 
+# http://discord.drakodevelopment.net
+# ===========================================================================
+
+# ===========================================================================
+# BASIC MESSAGES
+# ===========================================================================
+NoPermsMessage: "You don't have permission to use this command."
+SuccessEmbedTitle: "Successful"
+ErrorEmbedTitle: "An error has occurred"
+NoReason: "None provided!"
+
+# ===========================================================================
+# CRYPTO MESSAGES
+# ===========================================================================
+Crypto:
+  Messages:
+    Pending: 
+      Lang: "Pending"
+      Color: "#ADD8E6"
+    Completed:
+      Lang: "Completed"
+      Color: "#00FF00"
+    Cancelled:
+      Lang: "Cancelled"
+      Color: "#ADD8E6"
+    Transaction: "Not Set"
+  Embed:
+    Title: "Crypto Payment | {coinType}" # Also {coinType_Full}, displays the full coin name, BTC to Bitcoin for example
+    Description:
+      - "> Scan the QR code to make a payment,"
+      - "> or use the below address."
+      - " "
+      - "* **Sale Information**" 
+      - "> **Seller:** {seller}" 
+      - "> **Client:** {client}" 
+      - "> **Service:** {service}" 
+      - "> **Status:** {status}" 
+      - " "
+      - "* **Wallet Information**" 
+      - "> **Wallet:** `{walletAddress}`" 
+      - "> **Amount:** {cryptoAmount} ({currencySymbol}{currencyAmount})" # {currencySymbol} = $, £, etc
+    Footer:
+      Text: "Drako Development | Crypto Payments"
+      Icon: "https://i.imgur.com/w5XxKpc.png"
+    Author:
+      Text: ""
+      Icon: ""
+    Image: ""
+    Thumbnail: "{coinIcon}" # {qrCode} or {coinIcon}
+    Buttons:
+      - Name: "Submit Transaction"
+        Emoji: "⬆️"
+        Style: "Success" # Primary, Secondary, Success, Danger, Link
+        Type: "SUBMIT"     # PASTE, LINK, QR, SUBMIT
+        Link: "" # Only if LINK type is used
+      - Name: "Get Wallet Address"
+        Emoji: "📥"
+        Style: "Primary" # Primary, Secondary, Success, Danger, Link
+        Type: "PASTE"    # PASTE, LINK, QR, SUBMIT
+        Link: ""         # Only if LINK type is used
+      - Name: "QR Code"
+        Emoji: "📥"
+        Style: "Primary" # Primary, Secondary, Success, Danger, Link
+        Type: "QR"     # PASTE, LINK, QR, SUBMIT
+        Link: "" # Only if LINK type is used
+      - Name: "Terms of Service"
+        Emoji: "📥"
+        Style: "Link" # Primary, Secondary, Success, Danger, Link
+        Type: "LINK"     # PASTE, LINK, QR, SUBMIT
+        Link: "https://google.com" # Only if LINK type is used
+
+Wallets:
+  BTC: "Example" # Wallet Address
+  LTC: "Example" # Wallet Address
+  ETH: "Example" # Wallet Address
+  # Supports more types
+
+
+
+# ===========================================================================
+# PAYPAL MESSAGES
+# ===========================================================================
+# Placeholders
+# {seller}
+# {buyer}
+# {invoiceID}
+# {currency}
+# {price}
+# {service}
+# {status}
+Paypal:
+  Messages:
+    Paid: 
+      Message: "Paid"
+      Color: "#00FF00" # Color of the embed during this status
+    Unpaid: 
+      Message: "Unpaid"
+      Color: "#ADD8E6" # Color of the embed during this status
+    Cancelled: 
+      Message: "The invoice has been cancelled"
+      Color: "#FF0000" # Color of the embed during this status
+    Error: "An error has occurred" 
+  Embed:
+    Title: "Paypal Invoice"
+    Description:
+      - "New Invoice Generated" 
+    Fields:
+      - name: "User"
+        value: "{buyer}"
+        inline: true
+      - name: "Price"
+        value: "{price}"
+        inline: true
+      - name: "Service"
+        value: "{service}"
+        inline: true
+      - name: "Status"
+        value: "{status}"
+        inline: false
+    Footer:
+      Text: "Invoice ID: {invoiceID}"
+      Icon: "https://i.imgur.com/w5XxKpc.png"
+    Author:
+      Text: ""
+      Icon: ""
+    Image: ""
+    Thumbnail: "https://cdn.pixabay.com/photo/2018/05/08/21/29/paypal-3384015_1280.png" 
+    Buttons:
+      Pay:
+        Name: "Pay Invoice"
+        Emoji: "💸"
+      Status:
+        Name: "Update Status"
+        Emoji: "⏱️"
+        Color: "Success"
+
+# ===========================================================================
+# TICKET MESSAGES
+# ===========================================================================
+Tickets:
+  WorkingHours: "This ticket has been raised outside of working hours. Please wait for our working hours to resume.\nOur working hours are from {workinghours_start} to {workinghours_end}."
+  Deleting: "This ticket is now being deleted."
+  Deletion: "The ticket will now be deleted."
+  DeleteCountDown: "This ticket will be deleted in {time} seconds."
+  Archive: "This ticket is now being archived."
+  Closed: "This ticket has now been closed."
+  TicketTypePlaceholder: "Select a ticket type"
+  AlreadyOpen: "You already have a ticket open! Close it before opening another."
+  CloseTicketButton: "Close Ticket"
+  ReviewAlreadySubmitted: "You have already submitted a review for this ticket."
+  ReviewTitle: "Review Feedback"
+  ReviewPlaceholder: "Please tell us why you gave this rating:"
+  ReviewComplete: "Thank you for your feedback!"
+  TicketReopenTitle: "Ticket Reopened"
+  TicketReopenDescription: "Ticket has been reopened by <@{userId}>."
+  TicketReopen: "Ticket reopened!"
+  TranscriptTitle: "Transcript Generated"
+  TranscriptDescription: "Transcript for ticket ID {ticketId} has been generated by <@{userId}>."
+  TranscriptReady: "Here is the transcript for your ticket:"
+  TranscriptNotEnough: "Not enough messages to generate a transcript."
+
+  TicketCreated:
+    LinkText: "Go to ticket"
+    Embed:
+      Title: "Ticket Created"
+      Description:
+        - "Your ticket has been created. {link}"
+      Footer:
+        Text: ""
+        Icon: ""
+      Author:
+        Text: ""
+        Icon: ""
+      Color: "#00FF00"
+      Image: ""
+      Thumbnail: ""
+    Button: 
+      Text: "Go to Ticket"
+      Emoji: "🟢"
+
+  Blacklisted:
+    Embed:
+      Title: "🚫 Blacklisted from Opening Tickets"
+      Description:
+        - "You are blacklisted from opening tickets."
+        - "Contact an administator if you'd like to appeal the ban." 
+        - " "
+        - "> **Blacklist By:** {user}"
+        - "> **Reason:** {reason}"
+        - "> **Banned At:** {time}"
+      Footer:
+        Text: "Contact an admin if you believe this is a mistake."
+        Icon: "https://e7.pngegg.com/pngimages/1003/312/png-clipart-hammer-game-pension-review-internet-crouton-hammer-technic-discord-thumbnail.png"
+      Author:
+        Text: ""
+        Icon: ""
+      Color: "#FF0000"
+      Image: ""
+      Thumbnail: ""
+
+
+
+# Placeholders
+# {totalTickets}
+# {totalMessages}
+# {totalReviews}
+# {openTickets}
+# {closedTickets}
+# {deletedTickets}
+# {averageRating}
+# {averageClosure}
+# {maxClosure} = Longest closure time
+# {user} = Person who ran the command
+Stats: 
+  Embed:
+    Title: "**Ticket Statistics**"
+    Description:
+      - "Requested by {user}"
+    Fields:
+      - name: "Total Tickets"
+        value: "{totalTickets}"
+        inline: true
+      - name: "Total Messages"
+        value: "{totalMessages}"
+        inline: true
+      - name: "Total Reviews"
+        value: "{totalReviews}"
+        inline: true
+      - name:  "Open Tickets"
+        value: "{openTickets}"
+        inline: true
+      - name: "Closed Tickets"
+        value: "{closedTickets}"
+        inline: true
+      - name: "Deleted Tickets"
+        value: "{deletedTickets}"
+        inline: true
+      - name: "Average Rating"
+        value: "{averageRating}"
+        inline: true
+      - name: "Average Closure"
+        value: "{averageClosure}"
+        inline: true
+      - name: "Longest Closure"
+        value: "{maxClosure}"
+        inline: true
+    Footer:
+      Text: "Drako Development | Ticket System"
+      Icon: "https://i.imgur.com/w5XxKpc.png"
+    Author:
+      Text: ""
+      Icon: ""
+    Color: "#5865F2"
+    Image: "{totalTicketsGraph}" # {totalTicketsGraph} will display a graph of ticket counts for the last 7 days
+    Thumbnail: ""
